@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ILaborationInterfaces\LaborationInterfaces.csproj" />
+    <ProjectReference Include="..\Lab4_Uppgift_1\Lab4_Uppgift_1.csproj" />
+  </ItemGroup>
+
+</Project>

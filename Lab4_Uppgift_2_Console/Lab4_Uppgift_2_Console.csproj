@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Output\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ILaborationInterfaces\LaborationInterfaces.csproj" />
+    <ProjectReference Include="..\Lab4_Uppgift_1\Lab4_Uppgift_1.csproj" />
+    <ProjectReference Include="..\Lab4_Uppgift_2\Lab4_Uppgift_2.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ExpectedOutput\Anubis.expected.out">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ExpectedOutput\Forrest.expected.out">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ExpectedOutput\MobyDick.expected.out">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ExpectedOutput\Ulysses.expected.out">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\Anubis.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\Forrest.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\HelloWorld.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\MobyDick.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\TheWarOfTheWorlds.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\Ulysses.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
