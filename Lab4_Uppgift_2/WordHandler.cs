@@ -11,7 +11,14 @@ namespace Lab4_Uppgift_2
             ISortedDictionary<string, int> dictionary = new BinarySearchTree<string, int>();
             foreach (var word in cleanWords)
             {
-                //Här skriver du din kod. Det är (enbart) denna loop du ska redovisa för laboration 4.
+                if (dictionary.Contains(word.ToLower()))
+                {
+                    dictionary.Set(word.ToLower(), dictionary.Get(word.ToLower()) + 1);
+                }
+                else
+                {
+                    dictionary.Add(word.ToLower(), 1);
+                }
             }
 
             return dictionary;

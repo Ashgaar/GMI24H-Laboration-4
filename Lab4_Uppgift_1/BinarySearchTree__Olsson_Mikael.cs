@@ -43,40 +43,145 @@ namespace Olsson_Mikael
             {
                 throw new ArgumentException($"Key: {key} already exists.");
             }
-
-            // Här saknas kod...
         }
 
         public void Traverse(Action<KeyValuePair<KeyType, ValueType>> action)
         {
-            
-            // Här saknas kod...
+            Traverse(action, root);
+        }
+        
+        private void Traverse(Action<KeyValuePair<KeyType, ValueType>> action, Node subroot)
+        {
+            if (subroot == null)
+            {
+                return;
+            }   
+         
+            Traverse(action, subroot.Left);
+            action(new KeyValuePair<KeyType, ValueType>(subroot.Key, subroot.Value));
+            Traverse(action, subroot.Right);
         }
 
         public bool Contains(KeyType key)
         {
-            // Här saknas kod...
-            return false;  // Denna rad är endast till för att koden ska gå att bygga.
+            return Contains(key, root);
+        }
+
+        private bool Contains(KeyType key, Node subroot)
+        {
+            if (subroot == null)
+            {
+                return false;
+            }
+            else if (key.CompareTo(subroot.Key) < 0)
+            {
+                return Contains(key, subroot.Left); 
+            }
+            else if (key.CompareTo(subroot.Key) > 0)
+            {
+                return Contains(key, subroot.Right);
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public ValueType Get(KeyType key)
         {
-            // Här saknas kod... 
-            return default(ValueType); // Denna rad är endast till för att koden ska gå att bygga.
+            return Get(key, root);
         }
 
+        private ValueType Get(KeyType key, Node subroot)
+        {
+            if (subroot == null)
+            {
+                throw new ArgumentException($"Key: {key} not found.");
+            }
+            else if (key.CompareTo(subroot.Key) < 0)
+            {
+                return Get(key, subroot.Left);
+            }
+            else if (key.CompareTo(subroot.Key) > 0)
+            {
+                return Get(key, subroot.Right);
+            }
+            else
+            {
+                return subroot.Value;
+            }
+        }
         public void Set(KeyType key, ValueType newValue)
         {
-            // Här saknas kod...
+            Set(key, newValue, ref root);
+        }
+
+        private void Set(KeyType key, ValueType newValue, ref Node subroot)
+        {
+            if (subroot == null)
+            {
+                throw new ArgumentException($"Key: {key} not found.");
+            }
+            else if (key.CompareTo(subroot.Key) < 0)
+            {
+                Set(key, newValue, ref subroot.Left);
+            }
+            else if (key.CompareTo(subroot.Key) > 0)
+            {
+                Set(key, newValue, ref subroot.Right);
+            }
+            else
+            {
+                subroot.Value = newValue;
+            }
         }
 
         public void Remove(KeyType key)
         {
-                
-            
-            // Här saknas kod...
+            Remove(key, ref root);
+        }
 
-            
+        private void Remove(KeyType key, ref Node subroot)
+        {
+            if (subroot == null)
+            {
+                throw new ArgumentException($"Key: {key} not found.");
+            }
+            else if (key.CompareTo(subroot.Key) < 0)
+            {
+                Remove(key, ref subroot.Left);
+            }
+            else if (key.CompareTo(subroot.Key) > 0)
+            {
+                Remove(key, ref subroot.Right);
+            }
+            else
+            {
+                if (subroot.Left == null && subroot.Right == null)
+                {
+                    subroot = null;
+                }
+                else if (subroot.Left == null)
+                {
+                    subroot = subroot.Right;
+                }
+                else if (subroot.Right == null)
+                {
+                    subroot = subroot.Left;
+                }
+                else
+                {
+                    Node temp = subroot.Right;
+                    while (temp.Left != null)
+                    {
+                        temp = temp.Left;
+                    }
+                    subroot.Key = temp.Key;
+                    subroot.Value = temp.Value;
+                    Remove(temp.Key, ref subroot.Right);
+                }
+                Count--;
+            }
         }
     }
 }

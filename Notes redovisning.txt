@@ -1,0 +1,14 @@
+1. I loopen, vilka jämförelser behöver du utföra?
+Det enda vi jämför det är ju det valda ordet och om det finns i listan.
+
+2. Hur hittar algoritmerna i Add() och Set() rätt i den interna datastrukturen?
+Den använder då compareto för att hitta rätt. Compareto kommer då ta keyn och kollar om den är över eller under 0 och på så sätt hittar den rätt.
+
+3. Hur modifierar Add() och Set() den interna datastrukturen?
+Set hittar då på rätt key och ändrar värdet för den keyn. Add använder, som sagt tidigare, compareto för att kolla om den skall lägga till det åt vänster eller höger.
+Visa grafen.
+
+4. Vad händer i funktionen Traverse()?
+Visa grafen.
+Först kollar den D, sen går den ner åt vänster tills den når A, där kollar den noderna under A och ser att de är null och skriver då ut A. 
+Sen går den till B och skriver då ut B, sen går det till C. Sen återvänder den till roten och gör samma på höger sida.

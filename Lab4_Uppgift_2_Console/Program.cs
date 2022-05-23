@@ -49,7 +49,7 @@ namespace Lab4_Uppgift_2
                 inputFilePath = SelectInputFile(InputDir);
             }
             Console.Write($"\nExiting in {WaitSeconds} s...");
-            Thread.Sleep(WaitSeconds*1000);
+            Thread.Sleep(WaitSeconds * 1000);
         }
 
         #region Private functions for sub-parts of the overall program
