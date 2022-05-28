@@ -55,11 +55,26 @@ namespace Olsson_Mikael
             if (subroot == null)
             {
                 return;
-            }   
-         
+            }
+            //Algorithm Inorder(tree)
+            //1.Traverse the left subtree, i.e., call Inorder(left-subtree)
+            //2.Visit the root.
+            //3.Traverse the right subtree, i.e., call Inorder(right-subtree)
+            
+            //inorder traversal
             Traverse(action, subroot.Left);
             action(new KeyValuePair<KeyType, ValueType>(subroot.Key, subroot.Value));
             Traverse(action, subroot.Right);
+
+            //preorder traversal
+            //action(new KeyValuePair<KeyType, ValueType>(subroot.Key, subroot.Value));
+            //Traverse(action, subroot.Left);
+            //Traverse(action, subroot.Right);
+
+            //postorder traversal
+            //Traverse(action, subroot.Left);
+            //Traverse(action, subroot.Right);
+            //action(new KeyValuePair<KeyType, ValueType>(subroot.Key, subroot.Value));
         }
 
         public bool Contains(KeyType key)
